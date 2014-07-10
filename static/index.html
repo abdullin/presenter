@@ -10,21 +10,28 @@
 <body tag="KEY_RIGHT">
 
 <div class="container-fluid">
-  <div class="row"><div class="col-xs-12"><h1>Presenter</h1></div></div>
-  <div class="row">
-    <div class="col-xs-6"><a tag="KEY_LEFT" class="btn btn-primary btn-block btn-lg">Назад</a></div>
-    <div class="col-xs-6"><a tag="KEY_RIGHT" class="btn btn-success btn-block btn-lg">Дальше</a></div>
-  </div>
   <div class="row" style="padding-top:20px">
     <div class="col-xs-12">
-<a tag="KEY_RIGHT" class="btn btn-success btn-block" style="height:200px"></a>
+      <a tag="KEY_RIGHT" class="btn btn-success btn-block" style="height:200px"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12"><h1>Presenter</h1></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <a tag="KEY_LEFT" class="btn btn-primary btn-block btn-lg">Назад</a>
+    </div>
+    <div class="col-xs-6">
+      <a tag="KEY_RIGHT" class="btn btn-success btn-block btn-lg">Дальше</a>
     </div>
   </div>
 </div>
-</div>
 <script>
 $(function() {
-  var bind = function() {  $.post("/press", { key : $(this).attr('tag') } ) }
+  var bind = function() {  
+      $.post("/press", { key : $(this).attr('tag') } ) 
+  }
   $('a').click(bind)
   $('.panel').click(bind)
 })

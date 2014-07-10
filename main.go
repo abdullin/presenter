@@ -8,15 +8,13 @@ import (
 )
 
 func main() {
-	static := http.FileServer(http.Dir("static"))
 	http.HandleFunc("/press", h)
+	static :=  http.FileServer(http.Dir("static"))
 	http.Handle("/", static)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func h(w http.ResponseWriter, r *http.Request) {
 	press := r.FormValue("key")
-	log.Println(press)
-	kbd.KeyDown(press)
-	kbd.KeyUp(press)
+	kbd.KeyPress(press)
 }
